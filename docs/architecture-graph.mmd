@@ -1,0 +1,36 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	book_detection(book_detection)
+	image_quality(image_quality)
+	decision(decision)
+	super_resolution(super_resolution)
+	gemini_vision(gemini_vision)
+	validation(validation)
+	embedding_generation(embedding_generation)
+	bookshelf_memory(bookshelf_memory)
+	recommendation(recommendation)
+	final_response(final_response)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> book_detection;
+	bookshelf_memory --> recommendation;
+	embedding_generation --> bookshelf_memory;
+	final_response --> __end__;
+	gemini_vision --> validation;
+	image_quality --> decision;
+	recommendation --> final_response;
+	super_resolution --> gemini_vision;
+	book_detection -. &nbsp;no_detections&nbsp; .-> final_response;
+	book_detection -. &nbsp;has_detections&nbsp; .-> image_quality;
+	decision -. &nbsp;all_rejected&nbsp; .-> final_response;
+	decision -. &nbsp;needs_super_resolution&nbsp; .-> super_resolution;
+	decision -. &nbsp;direct_to_vision&nbsp; .-> gemini_vision;
+	validation -. &nbsp;no_validated_books&nbsp; .-> final_response;
+	validation -. &nbsp;has_validated_books&nbsp; .-> embedding_generation;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

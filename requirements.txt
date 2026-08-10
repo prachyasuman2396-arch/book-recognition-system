@@ -1,0 +1,39 @@
+# ---- Web framework ----
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+sse-starlette==2.2.1
+
+# ---- Config / validation ----
+pydantic==2.10.4
+pydantic-settings==2.7.0
+
+# ---- Orchestration ----
+langgraph==0.2.62
+langgraph-checkpoint-sqlite==2.0.1
+langchain-core==0.3.28
+
+# ---- Vision / ML ----
+ultralytics==8.3.53
+opencv-python-headless==4.10.0.84
+pillow==11.0.0
+numpy==1.26.4
+
+# Optional (installed separately in GPU environments):
+# basicsr==1.4.2
+# realesrgan==0.3.0
+
+# ---- LLM SDKs ----
+google-genai==0.8.0
+
+# ---- HTTP ----
+httpx==0.28.1
+
+# ---- Caching ----
+redis==5.2.1
+
+# ---- Observability ----
+prometheus-client==0.21.1
+opentelemetry-api==1.29.0
+opentelemetry-sdk==1.29.0
+opentelemetry-exporter-otlp-proto-grpc==1.29.0
